@@ -19,6 +19,10 @@
 !*.f
 !*.sh
 
+# whitelist files under `.github`
+!/.github/
+!/.github/*
+
 # whitelist files under `scripts`
 !/scripts/
 !/scripts/*
