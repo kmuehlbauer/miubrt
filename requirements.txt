@@ -1,11 +1,9 @@
 dask
-datashader
 deprecation
 gdal
 h5netcdf
 h5py
-hvplot
-matplotlib-base
+matplotlib
 netCDF4
 numpy
 semver

@@ -25,12 +25,8 @@ else:
                              module='miubrt')
 
     # versioning
-    try:
-        from .version import git_revision as __git_revision__  # noqa
-        from .version import version as __version__  # noqa
-    except ModuleNotFoundError:
-        # local develeopment
-        __version__ = "devel"
+    from .version import git_revision as __git_revision__  # noqa
+    from .version import version as __version__  # noqa
 
     # packages
     from . import util  # noqa
