@@ -46,11 +46,21 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+    - name: Cache micromamba packages
+      uses: actions/cache@v2
+      env:
+        CACHE_NUMBER: 1
+      with:
+        path: ~/micromamba/pkgs/*
+        key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('requirements*.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-conda-
     - name: install micromamba
       run: |
+        ls -lart ~/micromamba
         wget -qO- https://micromamba.snakepit.net/api/micromamba/linux-64/latest | tar -xvj bin/micromamba --strip-components=1
-        ./micromamba shell init -s bash -p ~/micromamba
-    - name: Install deps
+        yes | ./micromamba shell init -s bash -p ~/micromamba
+    - name: Install dependencies
       run: |
         export MAMBA_ROOT_PREFIX=~/micromamba
         export MAMBA_EXE=$(pwd)/micromamba
