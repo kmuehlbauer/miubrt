@@ -30,11 +30,11 @@ else:
         from .version import git_revision as __git_revision__  # noqa
         from .version import version as __version__  # noqa
     except ModuleNotFoundError:
-        # local develeopment
+        # local development
         __version__ = "devel"
 
     # packages
     from . import io  # noqa
     from . import util  # noqa
     from . import xarray  # noqa
-    from . import pol #noqa
+    from . import pol  # noqa

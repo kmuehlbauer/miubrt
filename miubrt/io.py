@@ -63,7 +63,7 @@ def save_netcdf_dataset(ds, path, post=None, engine="netcdf4"):
     t1 = t1.replace(second=0, microsecond=0, minute=((t1.minute // 5) * 5))
     fname = [
         f"{ds.location.values}",
-        f"{int(round(elevation, 1)*10)}",
+        f"{int(round(elevation, 1)*10):03}",
         f"{t0:%Y%m%d}",
         f"{t0:%H%M}",
         f"{t1:%H%M}",
